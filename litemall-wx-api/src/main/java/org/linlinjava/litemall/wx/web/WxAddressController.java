@@ -1,5 +1,6 @@
 package org.linlinjava.litemall.wx.web;
 
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.util.RegexUtil;
@@ -56,7 +57,7 @@ public class WxAddressController extends GetRegionService {
 	 * @return 收货地址详情
 	 */
 	@GetMapping("detail")
-	public Object detail(@LoginUser Integer userId, @NotNull Integer id) {
+	public Object detail(@LoginUser Integer userId, @RequestParam(required = false) @NotNull Integer id) {
 		if (userId == null) {
 			return ResponseUtil.unlogin();
 		}
